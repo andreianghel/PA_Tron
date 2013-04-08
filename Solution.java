@@ -116,7 +116,7 @@ public class Solution
 		for (int i = 0; i < 4; i++)
 		{
 			if (walls[i] == max)
-				if (dist[i] > wallMax)
+				if (dist[i] >= wallMax)
 					iMax = i;
 			if (walls[i] > max)
 			{
