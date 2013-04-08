@@ -5,16 +5,16 @@ import java.io.InputStreamReader;
 
 public class Solution
 {
-	//Metoda ce verifia daca o celula este o fundatura;
+	//practic, chestia asta e deep = 1;
 	public static boolean deadEnd(int rowMyTron, int colMyTron, char[][] board)
 	{
 		return (touchWall(rowMyTron, colMyTron, board) == 4) ? true : false;
 	}
 	
-	//Metoda ce intoarce numarul de celule ocupate din jurul celulei;
 	public static int touchWall(int rowMyTron, int colMyTron, char[][] board)
 	{
 		int numWall = 0;
+		//if (rowMyTron == 0 | colMyTron == 0 | rowMyTron == board.length | colMyTron == board[0].length) return numWall;
 		
 		if (youShallNotPass(board[rowMyTron-1][colMyTron])) numWall++;
 		if (youShallNotPass(board[rowMyTron][colMyTron-1])) numWall++;
@@ -24,7 +24,6 @@ public class Solution
 		return numWall;
 	}
 	
-	//Metoda ce calculeaza distanta pana la primul obstacol, in directia: Left;
 	public static int getDistLeft(int rowMyTron, int colMyTron, char[][] board)
 	{
 		int dist = 0;
@@ -34,7 +33,6 @@ public class Solution
 		return dist;
 	}
 	
-	//Metoda ce calculeaza distanta pana la primul obstacol, in directia: Right;
 	public static int getDistRight(int rowMyTron, int colMyTron, char[][] board)
 	{
 		int dist = 0;
@@ -44,7 +42,6 @@ public class Solution
 		return dist;
 	}
 	
-	//Metoda ce calculeaza distanta pana la primul obstacol, in directia: Up;
 	public static int getDistUp(int rowMyTron, int colMyTron, char[][] board)
 	{
 		int dist = 0;
@@ -54,7 +51,6 @@ public class Solution
 		return dist;
 	}
 	
-	//Metoda ce calculeaza distanta pana la primul obstacol, in directia: Down;
 	public static int getDistDown(int rowMyTron, int colMyTron, char[][] board)
 	{
 		int dist = 0;
@@ -64,13 +60,12 @@ public class Solution
 		return dist;
 	}
 	
-	//Metoda ce verifica daca sunt in situatia in care pot sa fac o singura mutare;
-	public static boolean checkSoloMove(int[] move)
+	
+	public static boolean checkMove(int[] move)
 	{
 		return (move[0]+move[1]+move[2]+move[3] == 1) ? true : false;
 	}
 	
-	//Metoda care ma informeaza ca nu pot muta in celula respectiva;
 	public static boolean youShallNotPass(char cell)
 	{
 		return (cell == '#' || cell == 'r' || cell == 'g') ? true : false;
@@ -80,17 +75,20 @@ public class Solution
 	public static String nextMove(char myTron, int rowMyTron, int colMyTron, int rowEnemy, int colEnemy, char[][] board)
 	{
 		//char enemy = (myTron == 'r') ? 'g' : 'r';
-		int[] myMove = new int[4]; /* 0: daca nu pot muta pe pozitia respectiv;  1: mutare valida;
-									move[0]: LEFT |	move[1]: RIGHT | move[2]: UP | move[3]: DOWN */
+		int[] myMove = new int[4]; /* 0: daca nu pot muta pe pozitia respectiv;  1: altfel;
+											move[0]: LEFT
+    										move[1]: RIGHT
+    										move[2]: UP
+    										move[3]: DOWN */
 		
-		//verific mediul inconjurator, sa vad daca scap usor;
+		//verific mediul inconjurator, sa vad daca scap usor
 		if (!youShallNotPass(board[rowMyTron+1][colMyTron]))	myMove[3] = 1;
 		if (!youShallNotPass(board[rowMyTron-1][colMyTron]))	myMove[2] = 1;
 		if (!youShallNotPass(board[rowMyTron][colMyTron+1]))	myMove[1] = 1;
 		if (!youShallNotPass(board[rowMyTron][colMyTron-1]))	myMove[0] = 1;
 
-		if (checkSoloMove(myMove)) //am o singura miscare posibila, o fac;
-			return ((myMove[0] == 1) ? "LEFT" : ((myMove[1] == 1) ? "RIGHT" : ((myMove[2] == 1) ? "UP" : ((myMove[3] == 1) ? "DOWN" : "ERR")))); 
+		if (checkMove(myMove)) //am o singura miscare posibila;
+			return ((myMove[0] == 1) ? "LEFT" : ((myMove[1] == 1) ? "RIGHT" : ((myMove[2] == 1) ? "UP" : ((myMove[3] == 1) ? "DOWN" : "MEGA-EROARE")))); 
 	
 		
 		/* calculez cate spatii sunt libere, in toate directiile*/
@@ -101,23 +99,24 @@ public class Solution
 		dist[1] = getDistRight(rowMyTron, colMyTron, board);
 		dist[0] = getDistLeft(rowMyTron, colMyTron, board);
 		
-		// implementing hug the wall, fill scenario:
+		// implementing hug the wall, fill scenario, efficient for when the players are separated:
 		int[] walls = new int[4];
 		
-		//practic, aici privesc o mutare in viitor;
 		if (myMove[3] == 1) walls[3] = (deadEnd(rowMyTron+1, colMyTron, board)) ? 0 : touchWall(rowMyTron+1, colMyTron, board);
 		if (myMove[2] == 1) walls[2] = (deadEnd(rowMyTron-1, colMyTron, board)) ? 0 : touchWall(rowMyTron-1, colMyTron, board);
 		if (myMove[1] == 1) walls[1] = (deadEnd(rowMyTron, colMyTron+1, board)) ? 0 : touchWall(rowMyTron, colMyTron+1, board);
 		if (myMove[0] == 1) walls[0] = (deadEnd(rowMyTron, colMyTron-1, board)) ? 0 : touchWall(rowMyTron, colMyTron-1, board);
 		
 		
-		int iMax = Integer.MIN_VALUE, max = Integer.MIN_VALUE, wallMax = Integer.MIN_VALUE;
+		int iMax = 0, max = Integer.MIN_VALUE, wallMax = Integer.MIN_VALUE;
 		
 		for (int i = 0; i < 4; i++)
 		{
 			if (walls[i] == max)
 				if (dist[i] >= wallMax)
+				{
 					iMax = i;
+				}
 			if (walls[i] > max)
 			{
 				max = walls[i];
@@ -135,7 +134,6 @@ public class Solution
 		}
 		
 	}
-	
 	
 	
 	public static void main(String[] args)
@@ -167,9 +165,9 @@ public class Solution
 		} catch (IOException e) {
 			// Trist moment.
 			System.out.println("Err: "+e.getMessage());
-		}/* catch (Exception e) {	//a nu se decomenta deocamdata, kills the debuging;
+		} catch (Exception e) {
 			// Si mai trist.
 			System.out.println("Err: "+e.getMessage());
-		}*/
+		}
 	}
 }
