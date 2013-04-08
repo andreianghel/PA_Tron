@@ -1,0 +1,24 @@
+
+ETAPA 1:
+				-main se va ocupa cu prelucrarea stdin si stdout;
+	
+				-botul va incerca sa supravietuiasca o perioada cat mai mare , incearca sa 
+				acopere o suprafata cat mai mare si are in vedere o mutare in viitor sa nu 
+				ajunga intr-o fundatura; 
+				-strategia de supravietuire e realizata analizand nr de "ziduri" de care ar
+				fi inconjurata urmatoarea mutare, cat si de distanta maxima care se poate 
+				parcurge in aceea directie;
+				-botul trece de etapa 1, dar algoritmul nu tine cont de adversar, convenabil 
+				pt momentul in care cei doi jucatori se vor separa si vor trebui sa umple 
+				eficient spatiul ramas => survival mode;
+				-algoritmul e un fel de greedy+un pas in viitor;
+				
+				TODO: (idei pt etapa2)
+				-de adaugat hunt mode - corespunde inceputul jocului, in care trebuie sa
+				ii "tai" din suprafata adversarului???
+				-incercam sa ii minimizam zona adversarului (pt atunci cand ajunge in survival)?
+				-indreptarea spre el; folosind o functie de stare ce calculeaza matricea in 
+				functie de locurile ce pot accesate de jucator inaintea celuilalt?
+				-implementarea minmax efectiva folosind functia propusa mai sus;
+				
+		
