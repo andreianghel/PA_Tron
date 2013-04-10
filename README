@@ -18,11 +18,14 @@ ETAPA 1:
 	pt momentul in care cei doi jucatori se vor separa si vor trebui sa umple 
 	eficient spatiul ramas => survival mode;
 	-algoritmul e un fel de greedy+un pas in viitor;
+
+	-link pe hackerrank: https://www.hackerrank.com/bucharest-tron/submissions/game/604197
+	-am invins Random si explorer, botii corespunzatori etapei curente;
 			
 	TODO: (idei pt etapa2)
 	-de adaugat hunt mode - corespunde inceputul jocului, in care trebuie sa
-	ii "tai" din suprafata adversarului???
-	-incercam sa ii minimizam zona adversarului (pt atunci cand ajunge in survival)?
+	ii "tai" din suprafata adversarului;
+	-incercam sa ii minimizam zona adversarului (pt atunci cand ajungem in survival);
 	-indreptarea spre el; folosind o functie de stare ce calculeaza matricea in 
 	functie de locurile ce pot accesate de jucator inaintea celuilalt?
 	-implementarea minmax efectiva folosind functia propusa mai sus;
