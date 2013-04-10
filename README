@@ -1,26 +1,31 @@
+	-am creat un repo privat pe GitHub: https://github.com/arhangel6/PA_Tron 
+(pt adaugare la collaborators: andrei.anghel@cti.pub.ro, sau mesaj pe cs.curs) ; 
+	-in principiu va fi folosit doar ca back-up si doar push/commit de pe un cont, 
+deoarece nu consideram necesar, deocamdata, folosirea lui (discutam intre noi, pt a ne 
+decide asupra algoritmului si scriem un singur cod);
+
 
 ETAPA 1:
-				-main se va ocupa cu prelucrarea stdin si stdout;
+	-main se va ocupa cu prelucrarea stdin si stdout;
 	
-				-botul va incerca sa supravietuiasca o perioada cat mai mare , incearca sa 
-				acopere o suprafata cat mai mare si are in vedere o mutare in viitor sa nu 
-				ajunga intr-o fundatura; 
-				-strategia de supravietuire e realizata analizand nr de "ziduri" de care ar
-				fi inconjurata urmatoarea mutare, cat si de distanta maxima care se poate 
-				parcurge in aceea directie;
-				-botul trece de etapa 1, dar algoritmul nu tine cont de adversar, convenabil 
-				pt momentul in care cei doi jucatori se vor separa si vor trebui sa umple 
-				eficient spatiul ramas => survival mode;
-				-algoritmul e un fel de greedy+un pas in viitor;
-				
-				TODO: (idei pt etapa2)
-				-de adaugat hunt mode - corespunde inceputul jocului, in care trebuie sa
-				ii "tai" din suprafata adversarului???
-				-incercam sa ii minimizam zona adversarului (pt atunci cand ajunge in survival)?
-				-indreptarea spre el; folosind o functie de stare ce calculeaza matricea in 
-				functie de locurile ce pot accesate de jucator inaintea celuilalt?
-				-implementarea minmax efectiva folosind functia propusa mai sus;
-				
-				last edit: Andrei, 12:09, 09-04-2013
-				
+	-botul va incerca sa supravietuiasca o perioada cat mai mare , incearca sa 
+	acopere o suprafata cat mai mare si are in vedere o mutare in viitor sa nu 
+	ajunga intr-o fundatura; 
+	-strategia de supravietuire e realizata analizand nr de "ziduri" de care ar
+	fi inconjurata urmatoarea mutare, cat si de distanta maxima care se poate 
+	parcurge in aceea directie;
+	-botul trece de etapa 1, dar algoritmul nu tine cont de adversar, convenabil 
+	pt momentul in care cei doi jucatori se vor separa si vor trebui sa umple 
+	eficient spatiul ramas => survival mode;
+	-algoritmul e un fel de greedy+un pas in viitor;
+			
+	TODO: (idei pt etapa2)
+	-de adaugat hunt mode - corespunde inceputul jocului, in care trebuie sa
+	ii "tai" din suprafata adversarului???
+	-incercam sa ii minimizam zona adversarului (pt atunci cand ajunge in survival)?
+	-indreptarea spre el; folosind o functie de stare ce calculeaza matricea in 
+	functie de locurile ce pot accesate de jucator inaintea celuilalt?
+	-implementarea minmax efectiva folosind functia propusa mai sus;
+			
+
 		
