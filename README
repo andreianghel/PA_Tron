@@ -1,8 +1,18 @@
-	-am creat un repo privat pe GitHub: https://github.com/arhangel6/PA_Tron 
-(pt adaugare la collaborators: andrei.anghel@cti.pub.ro, sau mesaj pe cs.curs) ; 
+Echipa DFTBA, 325CB.
+
+
+	-am creat un repository privat pe GitHub: https://github.com/arhangel6/PA_Tron 
+(pt adaugare la collaborators: andrei.anghel@cti.pub.ro, sau mesaj pe cs.curs.pub.ro); 
 	-in principiu va fi folosit doar ca back-up si doar push/commit de pe un cont, 
 deoarece nu consideram necesar, deocamdata, folosirea lui (discutam intre noi, pt a ne 
-decide asupra algoritmului si scriem un singur cod);
+decide asupra algoritmului si scriem un singur cod; trimitem fisiere pe mail sau direct
+, prin stick USB);
+	-ca mediu de dezvoltare am folosit Eclipse, dar am inclus un Makefile, cum se cerea
+in regulament;
+
+Clase: 
+	-Solution: singura clasa ce contine metode pentru stabilirea urmatoarei mutari; 
+	contine si main unde se prelucreaza intrarile si se transmite la iesire urm mutare;
 
 
 ETAPA 1:
@@ -10,9 +20,9 @@ ETAPA 1:
 	
 	-botul va incerca sa supravietuiasca o perioada cat mai mare , incearca sa 
 	acopere o suprafata cat mai mare si are in vedere o mutare in viitor sa nu 
-	ajunga intr-o fundatura; 
-	-strategia de supravietuire e realizata analizand nr de "ziduri" de care ar
-	fi inconjurata urmatoarea mutare, cat si de distanta maxima care se poate 
+	ajunga intr-o fundatura (complet inconjurat de ziduri); 
+	-strategia de supravietuire e realizata analizand nr. de "ziduri" de care 
+	ar fi inconjurata urmatoarea mutare, cat si de distanta maxima care se poate 
 	parcurge in aceea directie;
 	-botul trece de etapa 1, dar algoritmul nu tine cont de adversar, convenabil 
 	pt momentul in care cei doi jucatori se vor separa si vor trebui sa umple 
@@ -20,7 +30,20 @@ ETAPA 1:
 	-algoritmul e un fel de greedy+un pas in viitor;
 
 	-link pe hackerrank: https://www.hackerrank.com/bucharest-tron/submissions/game/605223
+	-user pe hackerrank: https://www.hackerrank.com/_DFTBA_
 	-am invins Random si explorer, botii corespunzatori etapei curente;
+
+	-complexitate: 
+		+majoriatea metodelor se bazeaza/folosesc metoda youShallNotPass,
+	(se realizeaza in O(1)), fie parcurg si acceseaza elemente din matrice;
+		+algoritmul e foarte "light" din punct de vedere al timpului si a
+	memoriei folosite si va rula in "worst case" in O(N) (unde N va fi 
+	max(lungimeTeren, latimeTeren));
+
+	-surse: 
+		+inspiratie: proprie echipei;
+		+cod: nu am folosit nimic extern pt aceasta etapa;
+
 			
 	TODO: (idei pt etapa2)
 	-de adaugat hunt mode - corespunde inceputul jocului, in care trebuie sa
@@ -29,6 +52,11 @@ ETAPA 1:
 	-indreptarea spre el; folosind o functie de stare ce calculeaza matricea in 
 	functie de locurile ce pot accesate de jucator inaintea celuilalt?
 	-implementarea minmax efectiva folosind functia propusa mai sus;
-			
 
-		
+
+ETAPA 2:
+//To be added
+
+
+ETAPA 3:
+//To be added

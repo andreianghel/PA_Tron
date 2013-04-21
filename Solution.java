@@ -2,7 +2,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-
+/**Clasa Solution;
+ *
+ *author DFTBA;
+ */
 public class Solution
 {
 	//Metoda ce verifica daca o celula este o fundatura;
@@ -93,7 +96,8 @@ public class Solution
 		if (!youShallNotPass(board[rowMyTron][colMyTron-1]))	myMove[0] = 1;
 
 		if (checkSoloMove(myMove)) //am o singura miscare posibila, o fac;
-			return ((myMove[0] == 1) ? "LEFT" : ((myMove[1] == 1) ? "RIGHT" : ((myMove[2] == 1) ? "UP" : ((myMove[3] == 1) ? "DOWN" : "ERR")))); 
+			return ((myMove[0] == 1) ? "LEFT" : ((myMove[1] == 1) ? "RIGHT" :
+				((myMove[2] == 1) ? "UP" : ((myMove[3] == 1) ? "DOWN" : "ERR")))); 
 	
 		
 		//calculez cate spatii sunt libere, in toate directiile:
