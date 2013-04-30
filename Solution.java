@@ -110,14 +110,21 @@ public class Solution {
 		int[] walls = new int[4];
 		
 		if (myMove[3] == 1)
-			walls[3] = (deadEnd(rowMyTron+1, colMyTron, board)) ? -1 : touchWall(rowMyTron+1, colMyTron, board);
+			walls[3] = (deadEnd(rowMyTron+1, colMyTron, board)) ? Integer.MIN_VALUE : touchWall(rowMyTron+1, colMyTron, board);
+		else 
+			walls[3] = Integer.MIN_VALUE;
 		if (myMove[2] == 1)
-			walls[2] = (deadEnd(rowMyTron-1, colMyTron, board)) ? -1 : touchWall(rowMyTron-1, colMyTron, board);
+			walls[2] = (deadEnd(rowMyTron-1, colMyTron, board)) ? Integer.MIN_VALUE : touchWall(rowMyTron-1, colMyTron, board);
+		else
+			walls[2] = Integer.MIN_VALUE;
 		if (myMove[1] == 1)
-			walls[1] = (deadEnd(rowMyTron, colMyTron+1, board)) ? -1 : touchWall(rowMyTron, colMyTron+1, board);
+			walls[1] = (deadEnd(rowMyTron, colMyTron+1, board)) ? Integer.MIN_VALUE : touchWall(rowMyTron, colMyTron+1, board);
+		else 
+			walls[1] = Integer.MIN_VALUE;
 		if (myMove[0] == 1)
-			walls[0] = (deadEnd(rowMyTron, colMyTron-1, board)) ? -1 : touchWall(rowMyTron, colMyTron-1, board);
-		
+			walls[0] = (deadEnd(rowMyTron, colMyTron-1, board)) ? Integer.MIN_VALUE : touchWall(rowMyTron, colMyTron-1, board);
+		else
+			walls[0] = Integer.MIN_VALUE;
 		
 		int iMax = -1, max = Integer.MIN_VALUE, wallMax = Integer.MIN_VALUE;
 		
@@ -209,8 +216,8 @@ public class Solution {
 		colE = (myTron == 'r') ? colEnemy : colMyTron;
 
 		//cand sunt departe de adversar incerc sa tai din spatiu dintre boti;
-		if ((board.nrFreeSpaces/(board.nrFreeSpaces+board.nrOccupiedSpaces)) > 0.7 
-			&& board.getEuclideanDistance(rowT, colT, rowE, colE) > (board.N+board.M)/2.25)
+		if (board.getEuclideanDistance(rowT, colT, rowE, colE) > (board.N+board.M)/3 
+			&& (board.nrFreeSpaces/(board.nrFreeSpaces+board.nrOccupiedSpaces)) > 0.45)
 			System.out.println(nextMoveHunt(myTron, rowT, colT, rowE, colE, board));
 		else
 			System.out.println(nextMove(myTron, rowT, colT, rowE, colE, board));

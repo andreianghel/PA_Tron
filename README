@@ -55,8 +55,56 @@ ETAPA 1:
 
 
 ETAPA 2:
-//To be added
+	-am schimbat modul de reprezentare interna al arenei, am optat pt o matrice
+	de Points, fiecare punct retinand un char (stadiul celulei: zid, red, green, liber);
+	-am creat de asemenea o clasa special pt arena, clasa Board va contine o matrice de 
+	puncte cat si informatii necesare alegerii strategiei: nr de celule libere si celule
+	ocupate;
+	-am plecat de la ideea de a implementa modul hunt, am calculat cand trebuie sa inceapa
+	si cand trebuie sa se termine;
+	-cand botul nostru este la o distanta suficient de mare si arena este relativ libera, 
+	incercam sa taiem spatiul, indreptandu-ne spre el;
+	-in modul hunt am dorit sa cautam cea mai scurta cale spre adversar si sa facem mutarea
+	in directia respectiva;
+	-am intampinat probleme de implementare astfel ca am decis sa alegem directia 
+	calculand direct distanta euclidiana;
 
+	-complexitate:
+		+in principiu a ramas la fel, daca am fi implementat cautarea celei mai scurte cai ar fi 
+		crescut;
+
+	-surse:
+		+inspiratie: http://gangles.ca/2008/03/28/cs-games-ai-competition-part-3/
+		+cod: nu.
+
+	-contributia echipei:
+		+partea corespunzatoare etapei curente s-a creat in comun (in sensul ca ne-am pus toti,
+		laptop langa laptop si am codat, scris, dezbatut idei - intr-o fereastra din orar);
+		
+	-meciuri cu stage2bot:
+		+site-ul a mers groaznic, dar de aceasta data am reusit sa obtinem link-uri: 
+		+link pe hackerrank: https://www.hackerrank.com/contests/bucharest-tron/submissions/game/635071
+		+am reusit doar o victorie si 5 meciuri egale (la overall apareau 6 draw, dar lipseste un meci
+		sau nu stim);
+
+		+victorii:  https://www.hackerrank.com/showgame/2299735
+
+		+egaluri:   https://www.hackerrank.com/showgame/2299726
+					https://www.hackerrank.com/showgame/2299731
+					https://www.hackerrank.com/showgame/2299734
+					https://www.hackerrank.com/showgame/2299736
+					https://www.hackerrank.com/showgame/2299737
+
+	
+
+	in plus: noi am prins la etapa 1 cu 8 meciuri; botul pt etapa 2 bate de asemenea ce trebuia sa bata 
+	la etapa 1, astfel ramane consistent -> 16 meciuri;
+	+se vor lua in considerare meciuri initiale, dar strict pt a face dovada ca functioneaza:
+		*pt random (incep de la meciul acesta): https://www.hackerrank.com/showgame/2300184
+		*pt explorer: https://www.hackerrank.com/showgame/2300204
+
+
+		
 
 ETAPA 3:
 //To be added
